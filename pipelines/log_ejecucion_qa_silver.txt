@@ -1,0 +1,212 @@
+
+=================================================================
+  REPORTE DE EJECUCION QA
+  ID Ejecucion : 20260708_220919
+  Zona         : silver
+  Fecha / Hora : 2026-07-08 22:09:58
+=================================================================
+  Total validaciones ejecutadas : 28
+  PASS                          : 19
+  FAIL                          : 9
+=================================================================
+  DETALLE POR VALIDACION
+=================================================================
+
+  [PASS]  age_citas | completitud
+  -----------------------------------------------------------------
+  Descripcion : validacion de campos criticos null ['ESPECIALIDAD_SOLICITADA']
+  Resultado   : Sin inconsistencias - 1500000 registros evaluados
+  Registros   : total=1500000  errores=0
+  Timestamp   : 2026-07-09 03:09:45.426874
+
+  [PASS]  ciudad | completitud
+  -----------------------------------------------------------------
+  Descripcion : validacion de campos criticos null ['ID_CIUDAD', 'NOMBRE_CIUDAD', 'ID_DEPTO']
+  Resultado   : Sin inconsistencias - 18 registros evaluados
+  Registros   : total=18  errores=0
+  Timestamp   : 2026-07-09 03:09:39.353061
+
+  [PASS]  departamento | completitud
+  -----------------------------------------------------------------
+  Descripcion : validacion de campos criticos null ['ID_DEPTO', 'NOMBRE_DEPTO', 'ID_PAIS']
+  Resultado   : Sin inconsistencias - 9 registros evaluados
+  Registros   : total=9  errores=0
+  Timestamp   : 2026-07-09 03:09:38.726430
+
+  [PASS]  eps | completitud
+  -----------------------------------------------------------------
+  Descripcion : validacion de campos criticos null ['ID_EPS', 'NOMBRE_EPS', 'ID_PAIS']
+  Resultado   : Sin inconsistencias - 12 registros evaluados
+  Registros   : total=12  errores=0
+  Timestamp   : 2026-07-09 03:09:40.063676
+
+  [FAIL <<]  hce_encuentros | completitud
+  -----------------------------------------------------------------
+  Descripcion : validacion de campos criticos null ['ESPECIALIDAD_ATENDIDA']
+  Resultado   : 89686 de 2000000 registros con error (4.5%) - 1910314 conformes
+  Registros   : total=2000000  errores=89686
+  Timestamp   : 2026-07-09 03:09:44.616318
+
+  [PASS]  med_planta | completitud
+  -----------------------------------------------------------------
+  Descripcion : validacion de campos criticos null ['ESPECIALIDAD_PRINCIPAL', 'TIPO_CONTRATO']
+  Resultado   : Sin inconsistencias - 2000 registros evaluados
+  Registros   : total=2000  errores=0
+  Timestamp   : 2026-07-09 03:09:43.282555
+
+  [PASS]  pac_registro | completitud
+  -----------------------------------------------------------------
+  Descripcion : validacion de campos criticos null ['GENERO']
+  Resultado   : Sin inconsistencias - 100000 registros evaluados
+  Registros   : total=100000  errores=0
+  Timestamp   : 2026-07-09 03:09:42.515315
+
+  [PASS]  pais | completitud
+  -----------------------------------------------------------------
+  Descripcion : validacion de campos criticos null ['ID_PAIS', 'NOMBRE_PAIS']
+  Resultado   : Sin inconsistencias - 3 registros evaluados
+  Registros   : total=3  errores=0
+  Timestamp   : 2026-07-09 03:09:37.861848
+
+  [PASS]  red_sedes | completitud
+  -----------------------------------------------------------------
+  Descripcion : validacion de campos criticos null ['NOMBRE_SEDE', 'TIPO_SEDE', 'NIVEL_COMPLEJIDAD']
+  Resultado   : Sin inconsistencias - 82 registros evaluados
+  Registros   : total=82  errores=0
+  Timestamp   : 2026-07-09 03:09:40.978506
+
+  [PASS]  ciudad | consistencia
+  -----------------------------------------------------------------
+  Descripcion : integridad referencial
+  Resultado   : Sin inconsistencias - 18 registros evaluados
+  Registros   : total=18  errores=0
+  Timestamp   : 2026-07-09 03:09:32.478481
+
+  [PASS]  departamento | consistencia
+  -----------------------------------------------------------------
+  Descripcion : integridad referencial
+  Resultado   : Sin inconsistencias - 9 registros evaluados
+  Registros   : total=9  errores=0
+  Timestamp   : 2026-07-09 03:09:31.029938
+
+  [PASS]  eps | consistencia
+  -----------------------------------------------------------------
+  Descripcion : integridad referencial
+  Resultado   : Sin inconsistencias - 12 registros evaluados
+  Registros   : total=12  errores=0
+  Timestamp   : 2026-07-09 03:09:33.793535
+
+  [PASS]  med_planta | consistencia
+  -----------------------------------------------------------------
+  Descripcion : integridad referencial
+  Resultado   : Sin inconsistencias - 2000 registros evaluados
+  Registros   : total=2000  errores=0
+  Timestamp   : 2026-07-09 03:09:36.689282
+
+  [PASS]  red_sedes | consistencia
+  -----------------------------------------------------------------
+  Descripcion : integridad referencial
+  Resultado   : Sin inconsistencias - 82 registros evaluados
+  Registros   : total=82  errores=0
+  Timestamp   : 2026-07-09 03:09:35.235666
+
+  [FAIL <<]  age_citas | exactitud
+  -----------------------------------------------------------------
+  Descripcion : hora inicio atencion invalido
+  Resultado   : 37313 de 1500000 registros con error (2.5%) - 1462687 conformes
+  Registros   : total=1500000  errores=37313
+  Timestamp   : 2026-07-09 03:09:56.664689
+
+  [FAIL <<]  hce_encuentros | exactitud
+  -----------------------------------------------------------------
+  Descripcion : anomalia en diagnostico ppal CIE10
+  Resultado   : 6000 de 2000000 registros con error (0.3%) - 1994000 conformes
+  Registros   : total=2000000  errores=6000
+  Timestamp   : 2026-07-09 03:09:55.133169
+
+  [FAIL <<]  hce_encuentros | exactitud
+  -----------------------------------------------------------------
+  Descripcion : valor facturado menor a 0
+  Resultado   : 5000 de 2000000 registros con error (0.2%) - 1995000 conformes
+  Registros   : total=2000000  errores=5000
+  Timestamp   : 2026-07-09 03:09:55.902031
+
+  [FAIL <<]  med_planta | exactitud
+  -----------------------------------------------------------------
+  Descripcion : sin jornada laboral
+  Resultado   : 200 de 2000 registros con error (10.0%) - 1800 conformes
+  Registros   : total=2000  errores=200
+  Timestamp   : 2026-07-09 03:09:54.004278
+
+  [FAIL <<]  pac_registro | exactitud
+  -----------------------------------------------------------------
+  Descripcion : valor de edad en rango anormal
+  Resultado   : 7000 de 100000 registros con error (7.0%) - 93000 conformes
+  Registros   : total=100000  errores=7000
+  Timestamp   : 2026-07-09 03:09:53.411788
+
+  [FAIL <<]  age_citas | oportunidad
+  -----------------------------------------------------------------
+  Descripcion : actualidad del dato - umbral 48h - transaccional
+  Resultado   : ERROR: MAX [FECHA_HORA_AGENDAMIENTO]=2026-07-04 16:59 - desactualizado hace 4d 10h (umbral: 48h)
+  Registros   : total=1  errores=1
+  Timestamp   : 2026-07-09 03:09:52.285906
+
+  [PASS]  ciudad | oportunidad
+  -----------------------------------------------------------------
+  Descripcion : actualidad del dato - umbral 48h
+  Resultado   : Sin inconsistencias - 18 registros evaluados
+  Registros   : total=18  errores=0
+  Timestamp   : 2026-07-09 03:09:48.578108
+
+  [PASS]  departamento | oportunidad
+  -----------------------------------------------------------------
+  Descripcion : actualidad del dato - umbral 48h
+  Resultado   : Sin inconsistencias - 9 registros evaluados
+  Registros   : total=9  errores=0
+  Timestamp   : 2026-07-09 03:09:47.401516
+
+  [PASS]  eps | oportunidad
+  -----------------------------------------------------------------
+  Descripcion : actualidad del dato - umbral 48h
+  Resultado   : Sin inconsistencias - 12 registros evaluados
+  Registros   : total=12  errores=0
+  Timestamp   : 2026-07-09 03:09:49.296877
+
+  [FAIL <<]  gcm_camas | oportunidad
+  -----------------------------------------------------------------
+  Descripcion : actualidad del dato - umbral 48h - transaccional
+  Resultado   : ERROR: MAX [FECHA_HORA_REGISTRO]=2026-07-04 23:59 - desactualizado hace 4d 3h (umbral: 48h)
+  Registros   : total=1  errores=1
+  Timestamp   : 2026-07-09 03:09:51.527505
+
+  [FAIL <<]  hce_encuentros | oportunidad
+  -----------------------------------------------------------------
+  Descripcion : actualidad del dato - umbral 48h - transaccional
+  Resultado   : ERROR: MAX [FECHA_REGISTRO]=2026-07-04 23:59 - desactualizado hace 4d 3h (umbral: 48h)
+  Registros   : total=1  errores=1
+  Timestamp   : 2026-07-09 03:09:51.902496
+
+  [PASS]  med_planta | oportunidad
+  -----------------------------------------------------------------
+  Descripcion : actualidad del dato - umbral 48h
+  Resultado   : Sin inconsistencias - 2000 registros evaluados
+  Registros   : total=2000  errores=0
+  Timestamp   : 2026-07-09 03:09:51.083443
+
+  [PASS]  pais | oportunidad
+  -----------------------------------------------------------------
+  Descripcion : actualidad del dato - umbral 48h
+  Resultado   : Sin inconsistencias - 3 registros evaluados
+  Registros   : total=3  errores=0
+  Timestamp   : 2026-07-09 03:09:46.494731
+
+  [PASS]  red_sedes | oportunidad
+  -----------------------------------------------------------------
+  Descripcion : actualidad del dato - umbral 48h
+  Resultado   : Sin inconsistencias - 82 registros evaluados
+  Registros   : total=82  errores=0
+  Timestamp   : 2026-07-09 03:09:50.288591
+
+=================================================================
+

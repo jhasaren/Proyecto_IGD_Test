@@ -1,0 +1,8 @@
+{
+  "_descripcion": "Configuración centralizada para generación de datos dummy - Prueba Dataknow IGD.",
+  "schema_db_local": "dbo",
+  "storage_base": "abfss://bronze@dataknowdevdl.dfs.core.windows.net",
+  "random_seed": 133007052026,
+  "start_date": "2023-07-05",
+  "end_date":   "2026-07-05"
+}

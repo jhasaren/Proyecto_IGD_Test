@@ -1,0 +1,106 @@
+
+=================================================================
+  REPORTE DE EJECUCION QA
+  ID Ejecucion : 20260708_221538
+  Zona         : gold
+  Fecha / Hora : 2026-07-08 22:15:58
+=================================================================
+  Total validaciones ejecutadas : 13
+  PASS                          : 11
+  FAIL                          : 2
+=================================================================
+  DETALLE POR VALIDACION
+=================================================================
+
+  [FAIL <<]  fact_consultas | consistencia
+  -----------------------------------------------------------------
+  Descripcion : huerfanos: ID_PACIENTE sin match en dim_pacientes Gold
+  Resultado   : 146532 de 1989000 registros con error (7.4%) - 1842468 conformes
+  Registros   : total=1989000  errores=146532
+  Timestamp   : 2026-07-09 03:15:46.764334
+
+  [PASS]  fact_consultas | consistencia
+  -----------------------------------------------------------------
+  Descripcion : huerfanos: ID_MEDICO sin match en dim_medicos Gold
+  Resultado   : Sin inconsistencias - 1989000 registros evaluados
+  Registros   : total=1989000  errores=0
+  Timestamp   : 2026-07-09 03:15:47.956034
+
+  [PASS]  fact_consultas | consistencia
+  -----------------------------------------------------------------
+  Descripcion : huerfanos: ID_SEDE sin match en dim_sedes Gold
+  Resultado   : Sin inconsistencias - 1989000 registros evaluados
+  Registros   : total=1989000  errores=0
+  Timestamp   : 2026-07-09 03:15:49.272649
+
+  [FAIL <<]  fact_tiempos_espera | consistencia
+  -----------------------------------------------------------------
+  Descripcion : huerfanos: ID_PACIENTE sin match en dim_pacientes Gold
+  Resultado   : 26531 de 375692 registros con error (7.1%) - 349161 conformes
+  Registros   : total=375692  errores=26531
+  Timestamp   : 2026-07-09 03:15:50.845092
+
+  [PASS]  fact_tiempos_espera | consistencia
+  -----------------------------------------------------------------
+  Descripcion : huerfanos: ID_MEDICO sin match en dim_medicos Gold
+  Resultado   : Sin inconsistencias - 375692 registros evaluados
+  Registros   : total=375692  errores=0
+  Timestamp   : 2026-07-09 03:15:51.867446
+
+  [PASS]  fact_tiempos_espera | consistencia
+  -----------------------------------------------------------------
+  Descripcion : huerfanos: ID_SEDE sin match en dim_sedes Gold
+  Resultado   : Sin inconsistencias - 375692 registros evaluados
+  Registros   : total=375692  errores=0
+  Timestamp   : 2026-07-09 03:15:52.847832
+
+  [PASS]  dim_medicos | exactitud
+  -----------------------------------------------------------------
+  Descripcion : exactitud derivada: ANIOS_EXPERIENCIA no negativo y coherente con FECHA_INGRESO
+  Resultado   : Sin inconsistencias - 2000 registros evaluados
+  Registros   : total=2000  errores=0
+  Timestamp   : 2026-07-09 03:15:54.749997
+
+  [PASS]  dim_pacientes | exactitud
+  -----------------------------------------------------------------
+  Descripcion : exactitud derivada: correspondencia entre EDAD y RANGO_EDAD
+  Resultado   : Sin inconsistencias - 93000 registros evaluados
+  Registros   : total=93000  errores=0
+  Timestamp   : 2026-07-09 03:15:53.827190
+
+  [PASS]  dim_sedes | exactitud
+  -----------------------------------------------------------------
+  Descripcion : exactitud derivada: suma de capacidades igual a CAPACIDAD_TOTAL_CAMAS
+  Resultado   : Sin inconsistencias - 82 registros evaluados
+  Registros   : total=82  errores=0
+  Timestamp   : 2026-07-09 03:15:55.556286
+
+  [PASS]  dim_sedes | exactitud
+  -----------------------------------------------------------------
+  Descripcion : exactitud derivada: rango de PORCENT_CAMAS_UCI
+  Resultado   : Sin inconsistencias - 82 registros evaluados
+  Registros   : total=82  errores=0
+  Timestamp   : 2026-07-09 03:15:56.559613
+
+  [PASS]  dim_medicos | unicidad
+  -----------------------------------------------------------------
+  Descripcion : unicidad de llave de negocio ['ID_MEDICO']
+  Resultado   : Sin inconsistencias - 2000 registros evaluados
+  Registros   : total=2000  errores=0
+  Timestamp   : 2026-07-09 03:15:43.703297
+
+  [PASS]  dim_pacientes | unicidad
+  -----------------------------------------------------------------
+  Descripcion : unicidad de llave de negocio ['ID_PACIENTE']
+  Resultado   : Sin inconsistencias - 93000 registros evaluados
+  Registros   : total=93000  errores=0
+  Timestamp   : 2026-07-09 03:15:42.371553
+
+  [PASS]  dim_sedes | unicidad
+  -----------------------------------------------------------------
+  Descripcion : unicidad de llave de negocio ['ID_SEDE']
+  Resultado   : Sin inconsistencias - 82 registros evaluados
+  Registros   : total=82  errores=0
+  Timestamp   : 2026-07-09 03:15:44.729594
+
+=================================================================
