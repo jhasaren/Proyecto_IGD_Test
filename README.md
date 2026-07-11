@@ -132,7 +132,7 @@ El ciclo de vida del dato se implementa bajo el patrón **Medallion Architecture
 * **Manejo de Errores:** Los registros que fallan las validaciones son etiquetados con metadatos de QA detallando el motivo del fallo, permitiendo analizarlos en el tablero analítico sin detener la ejecución del pipeline (enfoque tolerante a fallos). Los resultados se almacenan en formato Delta.
 
 ### 5.3 Capa Gold (Dimensional Analítico)
-* **Estructura Analítica:** Los datos limpios de la capa Silver se consolidan en un **Modelo Dimensional Estrella** idóneo para el consumo de analistas de negocio y herramientas de BI.
+* **Estructura Analítica:** Los datos limpios de la capa Silver se consolidan en un **Modelo Dimensional** idóneo para el consumo de analistas de negocio y herramientas de BI.
 * **Modelo Semántico:** Se optimizan las tablas finales en formato Delta con agregaciones previas para simplificar la capa de visualización.
 
 ---
@@ -154,7 +154,7 @@ El framework de QA genera logs detallados para cada corrida. Los resultados evid
   * `pac_registro | exactitud`: 7,000 registros de pacientes (7.0% de 100,000) arrojaron un rango de edad anormal o inválido.
   * **Oportunidad (Frescura):** Las tablas transaccionales (`age_citas`, `gcm_camas`, `hce_encuentros`) fallaron el umbral de 48 horas debido a que los datos simulados tienen como fecha máxima de transacción el 2026-07-04 23:59 (4 días de retraso frente al tiempo de ejecución).
 
-### 6.2 Capa Gold ([/pipelines/log_ejecucion_qa_gold.txt]()
+### 6.2 Capa Gold ([/pipelines/log_ejecucion_qa_gold.txt])
 * **Total Validaciones Ejecutadas:** 13
   * **Exitosas (PASS):** 11
   * **Fallidas (FAIL):** 2
@@ -166,7 +166,7 @@ El framework de QA genera logs detallados para cada corrida. Los resultados evid
 
 ## 7. Modelo Dimensional Analítico (Gold)
 
-En la capa Gold, la información se desnormaliza para dar vida a un modelo estrella compuesto por las entidades requeridas (especificadas en la necesidad de negocio):
+En la capa Gold, la información se desnormaliza para dar vida a un modelo dimensional compuesto por las entidades requeridas (especificadas en la necesidad de negocio):
 
 ver '/docs/Arquitectura_Solucion_Analitica_Test_DataKnow.pdf' slide 36
 
@@ -178,10 +178,10 @@ ver '/docs/Arquitectura_Solucion_Analitica_Test_DataKnow.pdf' slide 36
 
 El entregable analítico final se construyó en **Power BI** ([/pipelines/modelo_dimensional/tablero_pbi/Tablero_Healthnet.pbix]) y cuenta con las siguientes vistas funcionales:
 
-1. **Vista de Ocupación de Camas:** Monitoreo en tiempo real y tendencias de ocupación de camas generales, UCI, cirugía y urgencias por sede y complejidad.
-2. **Vista de Gestión de Alertas:** Detección visual de anomalías de facturación, fallos de registros clínicos e inconsistencias de negocio.
-3. **Vista de Costos de Atención:** Desglose del valor facturado por EPS, tipo de aseguradora, especialidad médica y perfil demográfico del paciente.
-4. **Vista de Perfil de Paciente:** Análisis demográfico de la población atendida (edad, género, estrato, distribución geográfica).
+1. **Vista de Ocupación de Camas:** Monitoreo y tendencias de ocupación de camas generales, UCI, cirugía y urgencias por sede y complejidad.
+2. **Vista de Gestión de Alertas:** Detección anomalías epidemiológicas y tiempos de espera por sede.
+3. **Vista de Gestión de Facturación:** Desglose del valor facturado por diagnostico y datos de facturacion y cartera por ciudad.
+4. **Vista de Perfil de Paciente:** Análisis demográfico de la población atendida (edad, género, estrato, distribución geográfica). Clasificacion de complejidad del paciente según historico de atenciones.
 5. **Dashboard Maestro de QA:** Resumen ejecutivo de las validaciones de calidad de datos, métricas generales de registros conformes vs. erróneos y distribución de estados PASS/FAIL.
 6. **Dashboard Detalle de QA Silver:** Visualización detallada para rastrear registros con fallos de completitud, exactitud y consistencia, útil para auditorías de datos y remediación en la base fuente. Para el ejercicio solo se muestran dos tablas (hce_encuentros y pac_registro).
 
